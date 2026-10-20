@@ -270,7 +270,11 @@ class NoteViewSet(viewsets.ModelViewSet[Note]):
     def export_single(self, request: Request, pk: str | None = None) -> HttpResponse:
         """Export single note in Markdown or JSON format."""
         note = self.get_object()
-        export_format = request.query_params.get("format", "markdown").lower()
+        export_format = (
+            request.query_params.get("export_format")
+            or request.query_params.get("type")
+            or "markdown"
+        ).lower()
 
         if export_format in ("json",):
             data = NoteService.export_note_json(note)

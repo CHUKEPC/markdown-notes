@@ -88,5 +88,5 @@ ignore_missing_imports = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
-django_settings_module = "markdown_notes.config.settings"
+DJANGO_SETTINGS_MODULE = "markdown_notes.config.settings"
 addopts = "-v --tb=short --cov=src/markdown_notes --cov-report=term-missing"
