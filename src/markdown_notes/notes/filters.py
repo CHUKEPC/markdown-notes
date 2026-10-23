@@ -7,7 +7,7 @@ from markdown_notes.notes.models import Note
 from markdown_notes.notes.search import search_notes
 
 
-class NoteFilter(django_filters.FilterSet):
+class NoteFilter(django_filters.FilterSet):  # type: ignore[misc]
     """FilterSet providing query parameter filters for note collections."""
 
     tag = django_filters.CharFilter(
